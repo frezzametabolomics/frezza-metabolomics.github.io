@@ -1,38 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Frezza Lab Metabolomics Guidelines | University Metabolomics Group</title>
   <style>
-    /* Reset and base styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; padding: 20px; }
-    header { background: #333; color: #fff; padding: 20px 10px; text-align: center; }
-    nav.main-nav { background: #444; margin-bottom: 20px; }
-    nav.main-nav ul { display: flex; justify-content: center; list-style: none; }
-    nav.main-nav li { margin: 0 15px; }
-    nav.main-nav a { color: #fff; text-decoration: none; padding: 10px; display: block; }
-    nav.main-nav a:hover { background: #555; }
-    section.content { max-width: 960px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    footer { background: #333; color: #fff; text-align: center; padding: 10px; margin-top: 20px; }
-    
-    /* Table of Contents styles */
-    .toc {
-      background: #eee; padding: 15px; border-radius: 4px; margin-bottom: 20px;
+    /* Basic Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .toc h2 { font-size: 1.2em; margin-bottom: 10px; }
-    .toc ul { list-style: none; }
-    .toc li { margin: 5px 0; }
-    .toc a { text-decoration: none; color: #0066cc; }
-    .toc a:hover { text-decoration: underline; }
-    
-    /* Section headings */
-    h1 { margin-bottom: 15px; }
-    h2 { margin: 20px 0 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    h3 { margin: 15px 0 10px; }
-    p, li { margin-bottom: 10px; }
-    ul { margin-left: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav.main-nav {
+      background: #444;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    nav.main-nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav.main-nav li {
+      margin: 0 15px;
+    }
+    nav.main-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+    nav.main-nav a:hover {
+      background: #555;
+    }
+
+    /* Two-column container for TOC + main content */
+    .guidelines-container {
+      display: flex;
+      flex-wrap: wrap; /* allows wrapping on smaller screens */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Table of Contents (left column) */
+    aside.toc {
+      width: 250px;
+      flex-shrink: 0;
+      background: #eee;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px; /* so it doesn’t collide with footer on small screens */
+    }
+    aside.toc h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    aside.toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    aside.toc li {
+      margin: 5px 0;
+    }
+    aside.toc a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+    aside.toc a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content (right column) */
+    main.content {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-left: 20px; /* space between TOC and content */
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    /* Headings and text styling */
+    h1 {
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    h3 {
+      margin: 15px 0 10px;
+    }
+    p, li {
+      margin-bottom: 10px;
+    }
+    ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive tweaks: stack TOC above content on narrow screens */
+    @media (max-width: 768px) {
+      .guidelines-container {
+        display: block;
+      }
+      aside.toc,
+      main.content {
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -40,7 +140,7 @@
     <h1>Frezza Lab Metabolomics Guidelines (Version 03.23)</h1>
     <p>CECAD Research Center, University Hospital Cologne</p>
   </header>
-  
+
   <nav class="main-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -48,210 +148,213 @@
       <li><a href="guidelines.html">Guidelines</a></li>
     </ul>
   </nav>
-  
-  <!-- Table of Contents -->
-  <nav class="toc">
-    <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#overview">1. Overview</a></li>
-      <li><a href="#expdesign">2. Experimental Design</a></li>
-      <li><a href="#samplesubmission">3. Sample Preparation &amp; Submission</a></li>
-      <li><a href="#dataacquisition">4. Data Acquisition</a></li>
-      <li><a href="#dataprocessing">5. Data Processing</a></li>
-      <li><a href="#biointerpretation">6. Biological Interpretation &amp; Publication</a></li>
-      <li><a href="#expconsiderations">7. Experimental Design Considerations</a></li>
-      <li><a href="#isotopetracing">8. Stable Isotope Tracing</a></li>
-      <li><a href="#replication">9. Sample Replication</a></li>
-      <li><a href="#sampleprep">10. Sample Preparation Considerations</a></li>
-      <li><a href="#quantitation">11. Quantitation</a></li>
-      <li><a href="#lcms">12. LC-MS Limitations</a></li>
-      <li><a href="#dataanalysis">13. Data Analysis Overview</a></li>
-      <li><a href="#protocols">14. Protocols &amp; Materials</a></li>
-    </ul>
-  </nav>
-  
-  <!-- Main Content -->
-  <section class="content">
-    <!-- 1. Overview -->
-    <div id="overview">
-      <h2>1. Overview</h2>
-      <p>
-        Metabolomics is the profiling of small molecules (metabolites) in complex biological matrices.
-        The Frezza Lab is equipped with Thermo Scientific Orbitrap Exploris 120 and 240 mass spectrometers,
-        coupled to a Vanquish Horizon UHPLC system. We focus on primary, water‑soluble metabolites essential for
-        growth, development, and reproduction, using a semi‑targeted approach with an in‑house metabolite library.
-      </p>
-    </div>
-    
-    <!-- 2. Experimental Design -->
-    <div id="expdesign">
-      <h2>2. Experimental Design</h2>
-      <p>
-        A well‑designed experiment is crucial for success. After an initial collaboration inquiry,
-        a meeting is scheduled with Prof. Christian Frezza and the team to discuss project background, aims,
-        and experimental strategies. Please provide a brief project summary (in PowerPoint or Word format) along with any preliminary data.
-      </p>
-    </div>
-    
-    <!-- 3. Sample Preparation and Submission -->
-    <div id="samplesubmission">
-      <h2>3. Sample Preparation &amp; Submission</h2>
-      <p>
-        Prior to analysis, a sample submission form must be completed. Detailed protocols are provided for various sample types:
-      </p>
+
+  <!-- Two-column layout container -->
+  <div class="guidelines-container">
+    <!-- Table of Contents in left column -->
+    <aside class="toc">
+      <h2>Table of Contents</h2>
       <ul>
-        <li><strong>Cultured Cells:</strong> Wash with PBS, extract with 500 µl extraction buffer per 10<sup>6</sup> cells, and label vials clearly.</li>
-        <li><strong>Cell Culture Media (CCM):</strong> Centrifuge to remove cells, mix with extraction solution, and prepare a pooled QC sample.</li>
-        <li><strong>Tissues:</strong> Excise rapidly, snap‑freeze, homogenize using Precellys tubes, and extract with 25 µl extraction solution per mg tissue.</li>
-        <li><strong>Biofluids:</strong> Process blood samples promptly (using heparin tubes for plasma) with additional filtration steps as needed.</li>
+        <li><a href="#overview">1. Overview</a></li>
+        <li><a href="#expdesign">2. Experimental Design</a></li>
+        <li><a href="#samplesubmission">3. Sample Preparation &amp; Submission</a></li>
+        <li><a href="#dataacquisition">4. Data Acquisition</a></li>
+        <li><a href="#dataprocessing">5. Data Processing</a></li>
+        <li><a href="#biointerpretation">6. Biological Interpretation &amp; Publication</a></li>
+        <li><a href="#expconsiderations">7. Experimental Design Considerations</a></li>
+        <li><a href="#isotopetracing">8. Stable Isotope Tracing</a></li>
+        <li><a href="#replication">9. Sample Replication</a></li>
+        <li><a href="#sampleprep">10. Sample Preparation Considerations</a></li>
+        <li><a href="#quantitation">11. Quantitation</a></li>
+        <li><a href="#lcms">12. LC-MS Limitations</a></li>
+        <li><a href="#dataanalysis">13. Data Analysis Overview</a></li>
+        <li><a href="#protocols">14. Protocols &amp; Materials</a></li>
       </ul>
-    </div>
-    
-    <!-- 4. Data Acquisition -->
-    <div id="dataacquisition">
-      <h2>4. Data Acquisition</h2>
-      <p>
-        Data acquisition is performed using HILIC coupled with high‑resolution MS.
-        Pooled QC samples are run at regular intervals (every 6–8 injections) to monitor instrument performance.
-        Both full‑scan MS and MS2 fragmentation methods are used, depending on experimental needs.
-      </p>
-    </div>
-    
-    <!-- 5. Data Processing -->
-    <div id="dataprocessing">
-      <h2>5. Data Processing</h2>
-      <p>
-        Data processing includes normalization of raw signal intensities and natural abundance correction (for tracer‑labelled studies).
-        Data visualization is achieved through PCA plots, heat maps, bar graphs, and volcano plots.
-      </p>
-    </div>
-    
-    <!-- 6. Biological Interpretation & Publication -->
-    <div id="biointerpretation">
-      <h2>6. Biological Interpretation &amp; Publication</h2>
-      <p>
-        We work closely with collaborators to interpret metabolic changes and prepare manuscripts.
-        Extensive discussions help refine experimental strategies and data interpretation until robust conclusions are reached.
-      </p>
-    </div>
-    
-    <!-- 7. Experimental Design Considerations -->
-    <div id="expconsiderations">
-      <h2>7. Experimental Design Considerations</h2>
-      <p>
-        Considerations include selecting appropriate biological, technical, and analytical replicates.
-        For cell culture studies, at least five technical replicates per condition are recommended, while animal studies typically require at least four biological replicates.
-      </p>
-    </div>
-    
-    <!-- 8. Stable Isotope Tracing -->
-    <div id="isotopetracing">
-      <h2>8. Stable Isotope Tracing</h2>
-      <p>
-        Stable isotope tracers (e.g., 13C, 15N, 2H) are used to monitor metabolic fluxes.
-        To ensure accuracy, experiments must minimize metabolic perturbation and perform corrections for natural isotope abundance.
-      </p>
-    </div>
-    
-    <!-- 9. Sample Replication -->
-    <div id="replication">
-      <h2>9. Sample Replication</h2>
-      <p>
-        Replication is essential for robust data. Biological replicates are sourced independently,
-        while technical replicates (repeating the entire procedure) help assess variance in sample processing.
-      </p>
-    </div>
-    
-    <!-- 10. Sample Preparation Considerations -->
-    <div id="sampleprep">
-      <h2>10. Sample Preparation Considerations</h2>
-      <p>
-        Special considerations include consistent handling of cultured cells, including rapid quenching and uniform extraction.
-        For media, tissues, and biofluids, careful processing and pooling of samples is critical to ensure data quality.
-      </p>
-    </div>
-    
-    <!-- 11. Quantitation -->
-    <div id="quantitation">
-      <h2>11. Quantitation</h2>
-      <p>
-        Quantitative data are provided as relative signal intensities.
-        For absolute quantitation, an internal standard dilution approach is applied. Normalization varies for tissues, biofluids, and cell samples.
-      </p>
-    </div>
-    
-    <!-- 12. LC-MS Limitations -->
-    <div id="lcms">
-      <h2>12. LC-MS Limitations</h2>
-      <p>
-        Although LC-MS detects hundreds to thousands of metabolites with high sensitivity,
-        it is not highly precise due to variations in ionization efficiency and potential isobaric interference.
-        For key findings, further validation may be necessary.
-      </p>
-    </div>
-    
-    <!-- 13. Data Analysis Overview -->
-    <div id="dataanalysis">
-      <h2>13. Data Analysis Overview</h2>
-      <p>
-        Our analysis includes:
-      </p>
-      <ul>
-        <li>Primary data reporting with peak area and metabolite metadata.</li>
-        <li>PCA plots for assessing sample similarities and detecting outliers.</li>
-        <li>Heat maps for visualizing metabolite patterns.</li>
-        <li>Bar graphs and volcano plots to highlight significant changes.</li>
-        <li>Stacked bar graphs for tracer‑labelled data.</li>
-      </ul>
-    </div>
-    
-    <!-- 14. Protocols & Materials -->
-    <div id="protocols">
-      <h2>14. Protocols &amp; Materials</h2>
-      <p>
-        <strong>Materials:</strong> LC‑MS grade Methanol, Acetonitrile, ultrapure water, and standards (e.g., Valine‑d8). Additional supplies include Eppendorf tubes, cell scrapers, autosampler vials, cryo‑labels, and dry ice.
-      </p>
-      <h3>Extraction Protocols</h3>
-      <p><strong>A. Cultured Cells:</strong></p>
-      <p>
-        1. Count cells and calculate extraction buffer (500 µl per 10<sup>6</sup> cells).<br>
-        2. Remove medium, wash with PBS, and aspirate thoroughly.<br>
-        3. Place plate on dry ice; add extraction buffer and incubate on a dry ice‑methanol bath for 20 minutes.<br>
-        4. Scrape cells, transfer to pre‑chilled tubes, shake in a Thermomixer at 4°C for 15 minutes, and centrifuge. Collect the top 80% of the supernatant.<br>
-        5. Prepare a pooled sample from equal aliquots.
-      </p>
-      <p><strong>B. Cell Culture Media (CCM):</strong></p>
-      <p>
-        1. Centrifuge 80 µl of CCM to remove cells.<br>
-        2. Add the supernatant to 350 µl of extraction solution on dry ice.<br>
-        3. Mix, shake at 4°C for 15 minutes, centrifuge, and collect the top 80% of the supernatant.<br>
-        4. Pool equal volumes for a QC sample.
-      </p>
-      <p><strong>C. Tissues:</strong></p>
-      <p>
-        1. Weigh and label tissue (10–20 mg recommended).<br>
-        2. Add extraction solution at 25 µl per mg tissue.<br>
-        3. Homogenize using a Precellys tissue homogenizer.<br>
-        4. Shake, centrifuge, and carefully collect the supernatant.<br>
-        5. Prepare a pooled sample.
-      </p>
-      <p><strong>D. Plasma/Serum:</strong></p>
-      <p>
-        1. Collect blood using a heparin tube (or allow serum to clot).<br>
-        2. Centrifuge promptly to separate plasma/serum, avoiding the buffy coat.<br>
-        3. Mix 40 µl of plasma with 360 µl of extraction solution on dry ice.<br>
-        4. Vortex, shake at 4°C, centrifuge, and filter using an Amicon Ultra-0.5 centrifugal filter unit.
-      </p>
-      <p><strong>E. Genomic NA Digestion Protocol:</strong></p>
-      <p>
-        1. Isolate genomic DNA using an appropriate kit (e.g., QIAGEN Neasy Blood &amp; Tissue Kit).<br>
-        2. Digest using Nucleoside Digestion Mix (NEB) as per manufacturer instructions.<br>
-        3. Add water and methanol, vortex, centrifuge, and collect the supernatant.
-      </p>
-    </div>
-    
-  </section>
-  
+    </aside>
+
+    <!-- Main Content in right column -->
+    <main class="content">
+      <!-- 1. Overview -->
+      <div id="overview">
+        <h2>1. Overview</h2>
+        <p>
+          Metabolomics is the profiling of small molecules (metabolites) in complex biological matrices.
+          The Frezza Lab is equipped with Thermo Scientific Orbitrap Exploris 120 and 240 mass spectrometers,
+          coupled to a Vanquish Horizon UHPLC system. We focus on primary, water‑soluble metabolites essential for
+          growth, development, and reproduction, using a semi‑targeted approach with an in‑house metabolite library.
+        </p>
+      </div>
+
+      <!-- 2. Experimental Design -->
+      <div id="expdesign">
+        <h2>2. Experimental Design</h2>
+        <p>
+          A well‑designed experiment is crucial for success. After an initial collaboration inquiry,
+          a meeting is scheduled with Prof. Christian Frezza and the team to discuss project background, aims,
+          and experimental strategies. Please provide a brief project summary (in PowerPoint or Word format) along with any preliminary data.
+        </p>
+      </div>
+
+      <!-- 3. Sample Preparation & Submission -->
+      <div id="samplesubmission">
+        <h2>3. Sample Preparation &amp; Submission</h2>
+        <p>
+          Prior to analysis, a sample submission form must be completed. Detailed protocols are provided for various sample types:
+        </p>
+        <ul>
+          <li><strong>Cultured Cells:</strong> Wash with PBS, extract with 500 µl extraction buffer per 10<sup>6</sup> cells, and label vials clearly.</li>
+          <li><strong>Cell Culture Media (CCM):</strong> Centrifuge to remove cells, mix with extraction solution, and prepare a pooled QC sample.</li>
+          <li><strong>Tissues:</strong> Excise rapidly, snap‑freeze, homogenize using Precellys tubes, and extract with 25 µl extraction solution per mg tissue.</li>
+          <li><strong>Biofluids:</strong> Process blood samples promptly (using heparin tubes for plasma) with additional filtration steps as needed.</li>
+        </ul>
+      </div>
+
+      <!-- 4. Data Acquisition -->
+      <div id="dataacquisition">
+        <h2>4. Data Acquisition</h2>
+        <p>
+          Data acquisition is performed using HILIC coupled with high‑resolution MS.
+          Pooled QC samples are run at regular intervals (every 6–8 injections) to monitor instrument performance.
+          Both full‑scan MS and MS2 fragmentation methods are used, depending on experimental needs.
+        </p>
+      </div>
+
+      <!-- 5. Data Processing -->
+      <div id="dataprocessing">
+        <h2>5. Data Processing</h2>
+        <p>
+          Data processing includes normalization of raw signal intensities and natural abundance correction (for tracer‑labelled studies).
+          Data visualization is achieved through PCA plots, heat maps, bar graphs, and volcano plots.
+        </p>
+      </div>
+
+      <!-- 6. Biological Interpretation & Publication -->
+      <div id="biointerpretation">
+        <h2>6. Biological Interpretation &amp; Publication</h2>
+        <p>
+          We work closely with collaborators to interpret metabolic changes and prepare manuscripts.
+          Extensive discussions help refine experimental strategies and data interpretation until robust conclusions are reached.
+        </p>
+      </div>
+
+      <!-- 7. Experimental Design Considerations -->
+      <div id="expconsiderations">
+        <h2>7. Experimental Design Considerations</h2>
+        <p>
+          Considerations include selecting appropriate biological, technical, and analytical replicates.
+          For cell culture studies, at least five technical replicates per condition are recommended, while animal studies typically require at least four biological replicates.
+        </p>
+      </div>
+
+      <!-- 8. Stable Isotope Tracing -->
+      <div id="isotopetracing">
+        <h2>8. Stable Isotope Tracing</h2>
+        <p>
+          Stable isotope tracers (e.g., 13C, 15N, 2H) are used to monitor metabolic fluxes.
+          To ensure accuracy, experiments must minimize metabolic perturbation and perform corrections for natural isotope abundance.
+        </p>
+      </div>
+
+      <!-- 9. Sample Replication -->
+      <div id="replication">
+        <h2>9. Sample Replication</h2>
+        <p>
+          Replication is essential for robust data. Biological replicates are sourced independently,
+          while technical replicates (repeating the entire procedure) help assess variance in sample processing.
+        </p>
+      </div>
+
+      <!-- 10. Sample Preparation Considerations -->
+      <div id="sampleprep">
+        <h2>10. Sample Preparation Considerations</h2>
+        <p>
+          Special considerations include consistent handling of cultured cells, including rapid quenching and uniform extraction.
+          For media, tissues, and biofluids, careful processing and pooling of samples is critical to ensure data quality.
+        </p>
+      </div>
+
+      <!-- 11. Quantitation -->
+      <div id="quantitation">
+        <h2>11. Quantitation</h2>
+        <p>
+          Quantitative data are provided as relative signal intensities.
+          For absolute quantitation, an internal standard dilution approach is applied. Normalization varies for tissues, biofluids, and cell samples.
+        </p>
+      </div>
+
+      <!-- 12. LC-MS Limitations -->
+      <div id="lcms">
+        <h2>12. LC-MS Limitations</h2>
+        <p>
+          Although LC-MS detects hundreds to thousands of metabolites with high sensitivity,
+          it is not highly precise due to variations in ionization efficiency and potential isobaric interference.
+          For key findings, further validation may be necessary.
+        </p>
+      </div>
+
+      <!-- 13. Data Analysis Overview -->
+      <div id="dataanalysis">
+        <h2>13. Data Analysis Overview</h2>
+        <p>
+          Our analysis includes:
+        </p>
+        <ul>
+          <li>Primary data reporting with peak area and metabolite metadata.</li>
+          <li>PCA plots for assessing sample similarities and detecting outliers.</li>
+          <li>Heat maps for visualizing metabolite patterns.</li>
+          <li>Bar graphs and volcano plots to highlight significant changes.</li>
+          <li>Stacked bar graphs for tracer‑labelled data.</li>
+        </ul>
+      </div>
+
+      <!-- 14. Protocols & Materials -->
+      <div id="protocols">
+        <h2>14. Protocols &amp; Materials</h2>
+        <p>
+          <strong>Materials:</strong> LC‑MS grade Methanol, Acetonitrile, ultrapure water, and standards (e.g., Valine‑d8).
+          Additional supplies include Eppendorf tubes, cell scrapers, autosampler vials, cryo‑labels, and dry ice.
+        </p>
+        <h3>Extraction Protocols</h3>
+        <p><strong>A. Cultured Cells:</strong></p>
+        <p>
+          1. Count cells and calculate extraction buffer (500 µl per 10<sup>6</sup> cells).<br>
+          2. Remove medium, wash with PBS, and aspirate thoroughly.<br>
+          3. Place plate on dry ice; add extraction buffer and incubate on a dry ice‑methanol bath for 20 minutes.<br>
+          4. Scrape cells, transfer to pre‑chilled tubes, shake in a Thermomixer at 4°C for 15 minutes, and centrifuge. Collect the top 80% of the supernatant.<br>
+          5. Prepare a pooled sample from equal aliquots.
+        </p>
+        <p><strong>B. Cell Culture Media (CCM):</strong></p>
+        <p>
+          1. Centrifuge 80 µl of CCM to remove cells.<br>
+          2. Add the supernatant to 350 µl of extraction solution on dry ice.<br>
+          3. Mix, shake at 4°C for 15 minutes, centrifuge, and collect the top 80% of the supernatant.<br>
+          4. Pool equal volumes for a QC sample.
+        </p>
+        <p><strong>C. Tissues:</strong></p>
+        <p>
+          1. Weigh and label tissue (10–20 mg recommended).<br>
+          2. Add extraction solution at 25 µl per mg tissue.<br>
+          3. Homogenize using a Precellys tissue homogenizer.<br>
+          4. Shake, centrifuge, and carefully collect the supernatant.<br>
+          5. Prepare a pooled sample.
+        </p>
+        <p><strong>D. Plasma/Serum:</strong></p>
+        <p>
+          1. Collect blood using a heparin tube (or allow serum to clot).<br>
+          2. Centrifuge promptly to separate plasma/serum, avoiding the buffy coat.<br>
+          3. Mix 40 µl of plasma with 360 µl of extraction solution on dry ice.<br>
+          4. Vortex, shake at 4°C, centrifuge, and filter using an Amicon Ultra-0.5 centrifugal filter unit.
+        </p>
+        <p><strong>E. Genomic NA Digestion Protocol:</strong></p>
+        <p>
+          1. Isolate genomic DNA using an appropriate kit (e.g., QIAGEN Neasy Blood &amp; Tissue Kit).<br>
+          2. Digest using Nucleoside Digestion Mix (NEB) as per manufacturer instructions.<br>
+          3. Add water and methanol, vortex, centrifuge, and collect the supernatant.
+        </p>
+      </div>
+    </main>
+  </div> <!-- end guidelines-container -->
+
   <footer>
     <p>&copy; 2025 University Metabolomics Group. All Rights Reserved.</p>
   </footer>
