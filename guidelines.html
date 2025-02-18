@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth; /* Enables smooth scrolling to anchors */
+      scroll-behavior: smooth;
     }
     body {
       font-family: Arial, sans-serif;
@@ -61,11 +61,10 @@
       background: #eee;
       border-radius: 4px;
       padding: 15px;
-      /* The magic: position: sticky keeps it "fixed" within its parent while scrolling */
       position: sticky;
-      top: 100px; /* Adjust so it doesn't overlap your top header/nav */
-      height: fit-content; /* So it only occupies as much vertical space as needed */
-      align-self: flex-start; /* Ensures the TOC doesn't stretch in height */
+      top: 100px;
+      height: fit-content;
+      align-self: flex-start;
     }
     aside.toc h2 {
       font-size: 1.2em;
@@ -129,8 +128,29 @@
       aside.toc, main.content {
         width: 100%;
         margin: 0;
-        position: static; /* Sticky won't work well on very narrow screens */
+        position: static;
       }
+    }
+
+    /* "Up" Button Styles */
+    #upButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      display: none; /* Hidden by default */
+    }
+    #upButton:hover {
+      opacity: 1;
     }
   </style>
 </head>
@@ -361,8 +381,31 @@
     </main>
   </div><!-- /.guidelines-container -->
 
+  <!-- "Up" Button -->
+  <button id="upButton" title="Go to top">Up</button>
+
   <footer>
     <p>&copy; 2025 University Metabolomics Group. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Show the "Up" button when scrolled down 200px from the top
+    const upButton = document.getElementById("upButton");
+    window.addEventListener("scroll", function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        upButton.style.display = "block";
+      } else {
+        upButton.style.display = "none";
+      }
+    });
+    
+    // Scroll to top when the button is clicked
+    upButton.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
 </body>
 </html>
