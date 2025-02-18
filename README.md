@@ -12,5 +12,5 @@ Our website provides information on:
 
 ## Live Site
 
-You can view the live website here: [https://yourusername.github.io](https://yourusername.github.io)
+You can view the live website here: [https://frezzametabolomics.github.io](https://frezzametabolomics.github.io)
 
