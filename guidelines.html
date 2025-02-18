@@ -5,29 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Frezza Lab Metabolomics Guidelines | University Metabolomics Group</title>
   <style>
-    /* Basic Reset and Base Styles */
+    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth; /* Enables smooth scrolling to anchors */
     }
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       color: #333;
       line-height: 1.6;
-      padding: 20px;
     }
     header {
       background: #333;
       color: #fff;
       padding: 20px 10px;
       text-align: center;
-      margin-bottom: 20px;
     }
     nav.main-nav {
       background: #444;
-      margin-bottom: 20px;
       border-radius: 4px;
     }
     nav.main-nav ul {
@@ -48,22 +46,26 @@
       background: #555;
     }
 
-    /* Two-column container for TOC + main content */
+    /* Container for TOC + Main Content */
     .guidelines-container {
       display: flex;
-      flex-wrap: wrap; /* allows wrapping on smaller screens */
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 20px auto;
+      padding: 0 20px;
+      gap: 20px;
     }
 
-    /* Table of Contents (left column) */
+    /* Sticky TOC on the left */
     aside.toc {
       width: 250px;
-      flex-shrink: 0;
       background: #eee;
-      padding: 15px;
       border-radius: 4px;
-      margin-bottom: 20px; /* so it doesn’t collide with footer on small screens */
+      padding: 15px;
+      /* The magic: position: sticky keeps it "fixed" within its parent while scrolling */
+      position: sticky;
+      top: 100px; /* Adjust so it doesn't overlap your top header/nav */
+      height: fit-content; /* So it only occupies as much vertical space as needed */
+      align-self: flex-start; /* Ensures the TOC doesn't stretch in height */
     }
     aside.toc h2 {
       font-size: 1.2em;
@@ -71,10 +73,9 @@
     }
     aside.toc ul {
       list-style: none;
-      padding-left: 0;
     }
     aside.toc li {
-      margin: 5px 0;
+      margin: 8px 0;
     }
     aside.toc a {
       text-decoration: none;
@@ -84,14 +85,13 @@
       text-decoration: underline;
     }
 
-    /* Main content (right column) */
+    /* Main Content */
     main.content {
       flex: 1;
       background: #fff;
       padding: 20px;
       border-radius: 4px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-left: 20px; /* space between TOC and content */
     }
 
     footer {
@@ -102,7 +102,7 @@
       margin-top: 20px;
     }
 
-    /* Headings and text styling */
+    /* Headings & Text */
     h1 {
       margin-bottom: 15px;
     }
@@ -119,18 +119,17 @@
     }
     ul {
       margin-left: 20px;
-      margin-bottom: 10px;
     }
 
-    /* Responsive tweaks: stack TOC above content on narrow screens */
+    /* Responsive: stack columns on narrow screens */
     @media (max-width: 768px) {
       .guidelines-container {
-        display: block;
+        flex-direction: column;
       }
-      aside.toc,
-      main.content {
+      aside.toc, main.content {
         width: 100%;
-        margin: 0 0 20px 0;
+        margin: 0;
+        position: static; /* Sticky won't work well on very narrow screens */
       }
     }
   </style>
@@ -149,9 +148,8 @@
     </ul>
   </nav>
 
-  <!-- Two-column layout container -->
   <div class="guidelines-container">
-    <!-- Table of Contents in left column -->
+    <!-- Sticky Table of Contents -->
     <aside class="toc">
       <h2>Table of Contents</h2>
       <ul>
@@ -172,7 +170,7 @@
       </ul>
     </aside>
 
-    <!-- Main Content in right column -->
+    <!-- Main Guidelines Content -->
     <main class="content">
       <!-- 1. Overview -->
       <div id="overview">
@@ -191,7 +189,8 @@
         <p>
           A well‑designed experiment is crucial for success. After an initial collaboration inquiry,
           a meeting is scheduled with Prof. Christian Frezza and the team to discuss project background, aims,
-          and experimental strategies. Please provide a brief project summary (in PowerPoint or Word format) along with any preliminary data.
+          and experimental strategies. Please provide a brief project summary (in PowerPoint or Word format)
+          along with any preliminary data.
         </p>
       </div>
 
@@ -199,7 +198,8 @@
       <div id="samplesubmission">
         <h2>3. Sample Preparation &amp; Submission</h2>
         <p>
-          Prior to analysis, a sample submission form must be completed. Detailed protocols are provided for various sample types:
+          Prior to analysis, a sample submission form must be completed. Detailed protocols are provided
+          for various sample types:
         </p>
         <ul>
           <li><strong>Cultured Cells:</strong> Wash with PBS, extract with 500 µl extraction buffer per 10<sup>6</sup> cells, and label vials clearly.</li>
@@ -223,8 +223,9 @@
       <div id="dataprocessing">
         <h2>5. Data Processing</h2>
         <p>
-          Data processing includes normalization of raw signal intensities and natural abundance correction (for tracer‑labelled studies).
-          Data visualization is achieved through PCA plots, heat maps, bar graphs, and volcano plots.
+          Data processing includes normalization of raw signal intensities and natural abundance correction
+          (for tracer‑labelled studies). Data visualization is achieved through PCA plots, heat maps, bar graphs,
+          and volcano plots.
         </p>
       </div>
 
@@ -233,7 +234,8 @@
         <h2>6. Biological Interpretation &amp; Publication</h2>
         <p>
           We work closely with collaborators to interpret metabolic changes and prepare manuscripts.
-          Extensive discussions help refine experimental strategies and data interpretation until robust conclusions are reached.
+          Extensive discussions help refine experimental strategies and data interpretation until robust
+          conclusions are reached.
         </p>
       </div>
 
@@ -242,7 +244,8 @@
         <h2>7. Experimental Design Considerations</h2>
         <p>
           Considerations include selecting appropriate biological, technical, and analytical replicates.
-          For cell culture studies, at least five technical replicates per condition are recommended, while animal studies typically require at least four biological replicates.
+          For cell culture studies, at least five technical replicates per condition are recommended, while
+          animal studies typically require at least four biological replicates.
         </p>
       </div>
 
@@ -251,7 +254,8 @@
         <h2>8. Stable Isotope Tracing</h2>
         <p>
           Stable isotope tracers (e.g., 13C, 15N, 2H) are used to monitor metabolic fluxes.
-          To ensure accuracy, experiments must minimize metabolic perturbation and perform corrections for natural isotope abundance.
+          To ensure accuracy, experiments must minimize metabolic perturbation and perform corrections
+          for natural isotope abundance.
         </p>
       </div>
 
@@ -268,8 +272,9 @@
       <div id="sampleprep">
         <h2>10. Sample Preparation Considerations</h2>
         <p>
-          Special considerations include consistent handling of cultured cells, including rapid quenching and uniform extraction.
-          For media, tissues, and biofluids, careful processing and pooling of samples is critical to ensure data quality.
+          Special considerations include consistent handling of cultured cells, including rapid quenching and
+          uniform extraction. For media, tissues, and biofluids, careful processing and pooling of samples is
+          critical to ensure data quality.
         </p>
       </div>
 
@@ -277,8 +282,9 @@
       <div id="quantitation">
         <h2>11. Quantitation</h2>
         <p>
-          Quantitative data are provided as relative signal intensities.
-          For absolute quantitation, an internal standard dilution approach is applied. Normalization varies for tissues, biofluids, and cell samples.
+          Quantitative data are provided as relative signal intensities. For absolute quantitation,
+          an internal standard dilution approach is applied. Normalization varies for tissues, biofluids,
+          and cell samples.
         </p>
       </div>
 
@@ -353,7 +359,7 @@
         </p>
       </div>
     </main>
-  </div> <!-- end guidelines-container -->
+  </div><!-- /.guidelines-container -->
 
   <footer>
     <p>&copy; 2025 University Metabolomics Group. All Rights Reserved.</p>
